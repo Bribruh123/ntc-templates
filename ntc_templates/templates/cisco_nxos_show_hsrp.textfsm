@@ -1,0 +1,37 @@
+Value IFACE (\S+)
+Value GROUP (\d+)
+Value PRIORITY (\d+)
+Value STATE (\w+)
+Value ACTIVEADDR (\S+)
+Value STANDBYADDR (\S+)
+Value GROUPADDR (\S+)
+Value HELLOSENT (\d*\.?\d)
+
+Start
+  ^${IFACE}\s+-\s+Group\s+${GROUP}.*
+  ^.*Local\s+state\s+is\s+${STATE}(,)\s+priority\s+${PRIORITY}.*
+  ^.*Forwarding\s+threshold(for\s+vPC),\s+lower:\s+0\s+upper:\s+100.*
+  ^.*Hellotime\s+3\s+sec,\s+holdtime\s+10\s+sec.*
+  ^.*Next\s+hello\s+sent\s+in\s+${HELLOSENT}\s+sec(s).*
+  ^.*Virtual\s+IP\s+address\s+is\s+192.168.1.131.*
+  ^.*Active\s+router\s+is\s${ACTIVEADDR} -> Record
+  ^.*
+  ^.*
+  ^.*
+  ^.*
+  ^.*
+  ^\s*$$
+  ^. -> Error
+  
+  
+    
+#    Forwarding threshold(for vPC), lower: 0 upper: 100
+#  Hellotime 3 sec, holdtime 10 sec
+#  Next hello sent in 0.391000 sec(s)
+#  Virtual IP address is 192.168.1.131 (Cfged)
+# 
+# Standby router is unknown
+# Authentication text "cisco"
+#  Virtual mac address is 0000.0c07.ac02 (Default MAC)
+#  2 state changes, last state change 00:40:50
+#  IP redundancy name is hsrp-Eth1/2-2 (default)

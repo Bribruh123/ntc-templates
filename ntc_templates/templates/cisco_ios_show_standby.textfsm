@@ -1,5 +1,5 @@
+Value VLAN_INT (\S+)
 Value GROUP (\d+)
-Value VERSION (\d+)
 Value STATE (\w+)
 Value VIRTUAL_IP (\S+)
 Value ACTIVE_VIRTUAL_MAC (\S+)
@@ -17,7 +17,7 @@ Value PRIORITY (\d+)
 Value GROUP_NAME (\S+)
 
 Start
-  ^.*Group\s+${GROUP}\s+\(version\s+${VERSION}\)
+  ^\s*${VLAN_INT}\s+-\s+Group\s+${GROUP}
   ^.*State\s+is\s+${STATE}
   ^.*Virtual\s+IP\s+address\s+is\s+${VIRTUAL_IP}
   ^.*Active\s+virtual\s+MAC\s+address\s+is\s+${ACTIVE_VIRTUAL_MAC}

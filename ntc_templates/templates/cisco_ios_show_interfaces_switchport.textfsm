@@ -21,12 +21,12 @@ Start
   ^\s*Voice\s+VLAN:\s+${VOICE_VLAN}
   ^\s*Trunking\s+VLANs\s+Enabled:\s+${TRUNKING_VLANS},\s*$$ -> Trunk
   ^\s*Trunking\s+VLANs\s+Enabled:\s+${TRUNKING_VLANS}$$
+  ^\s+${TRUNKING_VLANS}$$
   ^\s*Administrative\s+Mode:\s+${ADMIN_MODE}$$
   ^\s*(?:Operational|Administrative)\s+(?:Trunking|Native\s+VLAN|private-vlan)
   ^\s*Voice\s+VLAN:
   ^\s*Pruning\s+VLANs
   ^\s*Capture\s+(?:Mode|VLANs)
-  ^\s*Autostate\s+mode\s+exclude
   ^\s*Protected
   ^\s*Unknown\s+(unicast|multicast)
   ^\s*Vepa\s+Enabled
@@ -39,6 +39,5 @@ Start
   ^. -> Error
 
 Trunk
-  ^\s+${TRUNKING_VLANS},\s*$$
-  ^\s+${TRUNKING_VLANS}\s*$$ -> Start
-  ^. -> Error
+  ^\s+${TRUNKING_VLANS},\s*$$ -> Start
+  ^\s+${TRUNKING_VLANS}\s*$$

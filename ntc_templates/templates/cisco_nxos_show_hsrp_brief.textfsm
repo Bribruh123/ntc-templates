@@ -1,0 +1,24 @@
+Value IFACE (\S+)
+Value GROUP (\d+)
+Value PRIORITY (\d+)
+Value PREEMPT (.)
+Value STATE (\w+)
+Value ACTIVEADDR (\S+)
+Value STANDBYADDR (\S+)
+Value GROUPADDR (\S+)
+
+Start
+  ^\s*\W\WIPv6\s+group\s+\W\Wgroup\s+belongs\s+to\s+a\s+bundle\s*$$
+  ^\s+P\s+indicates\s+configured\s+to\s+preempt.\s*$$
+  ^\s+"|"\s*$$
+  ^\s+Interface\s+Grp\s+Prio\s+P\s+State\s+Active\s+addr\s+Standby\s+addr\s+Group\s+addr\s*$$
+  ^\s+${IFACE}\s+${GROUP}\s+${PRIORITY}\s+${PREEMPT}\s+${STATE}\s+${ACTIVEADDR}\s+${STANDBYADDR}\s+${GROUPADDR} -> Record
+  ^\s+${IFACE}\s*$$ 
+  ^\s*$$
+  ^. -> Error
+
+
+
+
+
+
